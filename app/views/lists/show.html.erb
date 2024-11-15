@@ -1,0 +1,21 @@
+<%= render @list %>
+
+
+<p><strong>Movies</strong></p>
+<ul class="list-group">
+  <% @list.movies.each do |movie| %>
+    <li class="list-group-item">
+      <%= movie.title %>
+      <%= movie.overview %>
+      <%= image_tag movie.poster_url %>
+
+    </li>
+  <% end %>
+
+<%= link_to "Add a movie", new_list_bookmark_path(@list) %>
+<div>
+  <%= link_to "Edit this list", edit_list_path(@list) %> |
+  <%= link_to "Back to lists", lists_path %>
+
+  <%= button_to "Destroy this list", @list, method: :delete %>
+</div>
